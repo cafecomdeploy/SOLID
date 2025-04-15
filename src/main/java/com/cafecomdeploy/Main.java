@@ -1,5 +1,8 @@
 package com.cafecomdeploy;
 
+import com.cafecomdeploy.LiskovSubstitution.wrong.Exercise;
+import com.cafecomdeploy.LiskovSubstitution.wrong.Handstand;
+import com.cafecomdeploy.LiskovSubstitution.wrong.Pushup;
 import com.cafecomdeploy.OpenClosed.correct.CalorieCalculator;
 import com.cafecomdeploy.OpenClosed.correct.CardioSession;
 import com.cafecomdeploy.OpenClosed.correct.StrengthTraining;
@@ -52,5 +55,24 @@ public class Main {
 
         System.out.println("[CORRETO] Calorias (Força): " + correctCalc.calculateTotalCalories(strength, 30));
         System.out.println("[CORRETO] Calorias (Cardio): " + correctCalc.calculateTotalCalories(cardio, 30));
+
+
+
+        Exercise handstand = new Handstand();
+        Exercise pushup = new Pushup(); // Substituição inválida!
+
+        handstand.perform(); // Funciona
+        pushup.perform();    // Lança exceção! Quebra Liskov.
+
+        /*
+        System.out.println("------------------------");
+        Exercise handstand = new Handstand();
+        Exercise pushup = new Pushup();
+        Exercise warmUp = new WarmUpExercise();
+
+        // Todos substituem Exercise corretamente!
+        handstand.perform(); // OK
+        pushup.perform();    // OK
+        warmUp.perform();    // OK*/
     }
 }
