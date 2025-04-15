@@ -1,5 +1,10 @@
 package com.cafecomdeploy;
 
+import com.cafecomdeploy.InterfaceSegregation.correct.Stretching;
+import com.cafecomdeploy.InterfaceSegregation.correct.WeightLifting;
+import com.cafecomdeploy.InterfaceSegregation.correct.WeightTraining;
+import com.cafecomdeploy.InterfaceSegregation.correct.Yoga;
+import com.cafecomdeploy.InterfaceSegregation.wrong.GymActivity;
 import com.cafecomdeploy.LiskovSubstitution.wrong.Exercise;
 import com.cafecomdeploy.LiskovSubstitution.wrong.Handstand;
 import com.cafecomdeploy.LiskovSubstitution.wrong.Pushup;
@@ -57,14 +62,14 @@ public class Main {
         System.out.println("[CORRETO] Calorias (Cardio): " + correctCalc.calculateTotalCalories(cardio, 30));
 
 
-
+ /*
         Exercise handstand = new Handstand();
         Exercise pushup = new Pushup(); // Substituição inválida!
 
         handstand.perform(); // Funciona
         pushup.perform();    // Lança exceção! Quebra Liskov.
 
-        /*
+
         System.out.println("------------------------");
         Exercise handstand = new Handstand();
         Exercise pushup = new Pushup();
@@ -74,5 +79,11 @@ public class Main {
         handstand.perform(); // OK
         pushup.perform();    // OK
         warmUp.perform();    // OK*/
+
+        Stretching yoga = new Yoga();
+        WeightLifting musculacao = new WeightTraining();
+
+        yoga.doStretching(); // OK
+        musculacao.liftWeights(); // OK
     }
 }
